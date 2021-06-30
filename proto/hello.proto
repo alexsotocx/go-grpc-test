@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package grpc.hello;
+
+option go_package = "github.com/alexsotocx/grpc-hello/proto";
+
+service Hello {
+  // Generate generates a new key and initial key version.
+  rpc Greet(GreetRequest) returns (GreetResponse);
+}
+
+// GreetRequest is a request to generate a key.
+message GreetRequest {}
+
+// GreetResponse is a response to a GreetRequest.
+message GreetResponse {
+  string message = 1;
+}

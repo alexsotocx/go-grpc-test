@@ -22,14 +22,14 @@ type helloServer struct {
 }
 
 func (s *helloServer) Greet(ctx context.Context, req *pb.GreetRequest) (*pb.GreetResponse, error) {
-	fmt.Printf("Received hello request")
+	log.Printf("Received hello request")
 	return &pb.GreetResponse{Message: fmt.Sprintf("Hello, from %s", serverName)}, nil
 }
 
 func main() {
 	lis, err := net.Listen("tcp", fmt.Sprintf("0.0.0.0:%d", port))
 
-	log.Printf("Staring server with params %s\n", serverName)
+	log.Printf("Staring server with params %s", serverName)
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
